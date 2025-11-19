@@ -22,7 +22,15 @@ const DashboardHome = () => {
     queryFn: async () => {
       const res = await fetch("/api/emails/stats");
       const json = await res.json();
-      return json.stats as { totalEmails: number; unprocessedEmails: number; pendingTasks: number; completedTasks: number };
+      return json.stats as { 
+        totalEmails: number; 
+        unprocessedEmails: number; 
+        pendingTasks: number; 
+        completedTasks: number;
+        highPriorityUnprocessed?: any[];
+        todoTasks?: number;
+        inProgressTasks?: number;
+      };
     },
   });
 
